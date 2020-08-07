@@ -1,0 +1,36 @@
+{
+	"passengers": [{
+		"name": "Sara Hum",
+		"age": 10
+	}, {
+		"name": "Jeremy Goldberg",
+		"age": 35
+	}, {
+		"name": "Evan Litvak",
+		"age": 28
+	}],
+	"legs": [{
+		"numStops": 2,
+		"date": "2019-10-10T08:30:00.000+01:00",
+		"start": {
+			"location": "San Francisco",
+			"code": "SFO"
+		},
+		"end": {
+			"location": "Amsterdam",
+			"code": "AMS"
+		}
+	}, {
+		"numStops": 0,
+		"date": "2019-10-18T09:50:00.000+01:00",
+		"start": {
+			"location": "Amsterdam",
+			"code": "AMS"
+		},
+		"end": {
+			"location": "San Francisco",
+			"code": "SFO"
+		}
+	}],
+	"price": "$4,032.54"
+}

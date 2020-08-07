@@ -1,0 +1,140 @@
+{
+	"$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+	"version": "1.0",
+	"type": "AdaptiveCard",
+	"speak": "Your flight is confirmed for you and 3 other passengers from San Francisco to Amsterdam on Friday, October 10 8:30 AM",
+	"body": [{
+		"type": "TextBlock",
+		"text": "Passengers",
+		"weight": "bolder",
+		"isSubtle": false
+	}, {
+		"type": "ColumnSet",
+		"columns": [{
+			"type": "Column",
+			"width": 1,
+			"items": [{
+				"type": "TextBlock",
+				"text": "Name"
+			}]
+		}, {
+			"type": "Column",
+			"width": 1,
+			"items": [{
+				"type": "TextBlock",
+				"text": "Age"
+			}]
+		}]
+	}, {
+		"$data": "{passengers}",
+		"type": "ColumnSet",
+		"columns": [{
+			"type": "Column",
+			"width": 1,
+			"items": [{
+				"type": "TextBlock",
+				"text": "{name}"
+			}]
+		}, {
+			"type": "Column",
+			"width": 1,
+			"items": [{
+				"type": "TextBlock",
+				"text": "{age}"
+			}]
+		}]
+	}, {
+		"type": "Container",
+		"items": [{
+			"$data": "{legs}",
+			"type": "Container",
+			"items": [{
+				"$when": "{numStops} == 0",
+				"type": "TextBlock",
+				"text": "Non-stop",
+				"weight": "bolder",
+				"spacing": "medium"
+			}, {
+				"$when": "{numStops} > 0",
+				"type": "TextBlock",
+				"text": "{numStops} Stops",
+				"weight": "bolder",
+				"spacing": "medium"
+			}, {
+				"type": "TextBlock",
+				"text": "{handleJSONDate(date , \"mdy\")}",
+				"weight": "bolder",
+				"spacing": "none"
+			}, {
+				"type": "ColumnSet",
+				"separator": true,
+				"columns": [{
+					"type": "Column",
+					"width": 1,
+					"items": [{
+						"type": "TextBlock",
+						"text": "{start.location}",
+						"isSubtle": true
+					}, {
+						"type": "TextBlock",
+						"size": "extraLarge",
+						"color": "accent",
+						"text": "{start.code}",
+						"spacing": "none"
+					}]
+				}, {
+					"type": "Column",
+					"width": "auto",
+					"items": [{
+						"type": "TextBlock",
+						"text": " "
+					}, {
+						"type": "Image",
+						"url": "/airplane.png",
+						"size": "small",
+						"spacing": "none"
+					}]
+				}, {
+					"type": "Column",
+					"width": 1,
+					"items": [{
+						"type": "TextBlock",
+						"horizontalAlignment": "right",
+						"text": "{end.location}",
+						"isSubtle": true
+					}, {
+						"type": "TextBlock",
+						"horizontalAlignment": "right",
+						"size": "extraLarge",
+						"color": "accent",
+						"text": "{end.code}",
+						"spacing": "none"
+					}]
+				}]
+			}]
+		}]
+	}, {
+		"type": "ColumnSet",
+		"spacing": "medium",
+		"columns": [{
+			"type": "Column",
+			"width": "1",
+			"items": [{
+				"type": "TextBlock",
+				"text": "Total",
+				"size": "medium",
+				"isSubtle": true
+			}]
+		}, {
+			"type": "Column",
+			"width": 1,
+			"items": [{
+				"type": "TextBlock",
+				"horizontalAlignment": "right",
+				"text": "{price}",
+				"size": "medium",
+				"weight": "bolder"
+			}]
+		}]
+	}]
+}

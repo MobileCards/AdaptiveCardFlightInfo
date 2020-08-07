@@ -1,0 +1,125 @@
+{
+	"Name": "AdaptiveCardFlightInfo",
+	"SortCardsWith": null,
+	"GatekeeperConfiguration": "",
+	"Connection": "SimpleJSON",
+	"CustomType": "SingleInstance",
+	"AppLaunchUrl": null,
+	"Descriptions": [
+		{
+			"language": "EN",
+			"text": "Adaptive Card Flight Info"
+		}
+	],
+	"UrlMatch": null,
+	"QueryInterval": "P1DT0H0M",
+	"QueryURL": null,
+	"QueryConfiguration": {
+		"QueryURLCollectionRoot": "$.d.results",
+		"QueryEntityKeyPaths": [
+			"$.d.__metadata.uri"
+		],
+		"CacheQueryResult": false
+	},
+	"QueryReturnsEntityCollection": false,
+	"NewsEnabled": false,
+	"AutoSubscribe": true,
+	"HiddenSubscription": false,
+	"SubscriptionParameters": [],
+	"ResourceIdentifiers": [
+		{
+			"ImagePaths": "",
+			"Order": 0,
+			"Shared": true,
+			"Uri": "/flightinfo.json"
+		}
+	],
+	"Parameters": {
+		"Parameters": [
+			{
+				"Name": "taskname",
+				"Propagate": false,
+				"ResourceOrderNumber": 0,
+				"Value": "$.d.TaskDefinitionName",
+				"displayName": "taskname"
+			},
+			{
+				"Name": "tasktitle",
+				"Propagate": false,
+				"ResourceOrderNumber": 0,
+				"Value": "$.d.TaskTitle",
+				"displayName": "tasktitle"
+			}
+		]
+	},
+	"APNSEnabled": true,
+	"NotificationMessages": {
+		"Messages": []
+	},
+	"NotificationRules": [],
+	"ActionConfiguration": {
+		"Actions": [
+			{
+				"ActionBody": " ",
+				"ActionHeaders": [
+					{
+						"HeaderName": "X-Requested-With",
+						"HeaderValue": "XMLHttpRequest"
+					}
+				],
+				"ActionName": "ACTION-ne",
+				"ActionParameters": [
+					{
+						"defaultValue": "",
+						"enabledForDeviceNotification": false,
+						"isKey": false,
+						"maxLength": 255,
+						"name": "comments",
+						"nullable": true,
+						"type": "Edm.String",
+						"label": [
+							{
+								"language": "EN",
+								"text": "Comments"
+							}
+						]
+					},
+					{
+						"defaultValue": "",
+						"enabledForDeviceNotification": false,
+						"isKey": false,
+						"maxLength": 255,
+						"name": "decisionKey",
+						"nullable": true,
+						"type": "Edm.String",
+						"label": [
+							{
+								"language": "EN",
+								"text": ""
+							}
+						]
+					}
+				],
+				"ActionUrl": "/sap/fiori/crossfndfioriinbox/sap/opu/odata/IWPGW/TASKPROCESSING;mo;v=2/Decision?SAP__Origin='${ID1}'&InstanceID='${ID2}'&DecisionKey='${decisionKey}'&Comments='${comments}'",
+				"EnabledForDeviceNotification": true,
+				"HttpMethod": "POST",
+				"Nature": "Negative",
+				"Labels": [
+					{
+						"language": "EN",
+						"text": "accept"
+					}
+				]
+			}
+		],
+		"BehaviorAfterAction": "INACTIVE",
+		"XCSRFTokenUrl": "/sap/fiori/crossfndfioriinbox/sap/opu/odata/IWPGW/TASKPROCESSING;mo;v=2/"
+	},
+	"CardClass": "HtmlTemplate",
+	"CardRenderer": "AdaptiveCard",
+	"SubscribableTo": {
+		"Users": []
+	},
+	"TemplateName": "User defined template for card AdaptiveCardFlightInfo",
+	"Uri": "/flightinfo.json"
+}
